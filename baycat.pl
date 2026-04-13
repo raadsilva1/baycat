@@ -14,8 +14,8 @@ use File::Spec;
 use POSIX qw(strftime);
 
 my %APP = (
-    project_name => 'neofelis',
-    app_name     => 'Neofelis',
+    project_name => 'baycat',
+    app_name     => 'Baycat',
     file_name    => 'baycat.pl',
     bin_name     => 'baycat',
     log_dir_name => 'baycat',
@@ -46,7 +46,7 @@ sub main {
     }
 
     unless (Gtk3->init_check) {
-        print STDERR "Neofelis could not open a graphical window. Please run it inside an Artix X11 desktop session.\n";
+        print STDERR "Baycat could not open a graphical window. Please run it inside an Artix X11 desktop session.\n";
         exit 1;
     }
 
@@ -76,10 +76,10 @@ sub main {
 }
 
 sub preflight_environment_problem {
-    return 'Neofelis needs an X11 desktop session. No DISPLAY was found.' if !$ENV{DISPLAY};
+    return 'Baycat needs an X11 desktop session. No DISPLAY was found.' if !$ENV{DISPLAY};
 
     if (($ENV{XDG_SESSION_TYPE} || '') eq 'wayland' && !$ENV{DISPLAY}) {
-        return 'Neofelis only works in X11 sessions.';
+        return 'Baycat only works in X11 sessions.';
     }
 
     return undef;
@@ -111,7 +111,7 @@ sub build_ui {
     my $header = Gtk3::Box->new('vertical', 4);
     my $title = Gtk3::Label->new(undef);
     $title->set_use_markup(TRUE);
-    $title->set_markup('<span size="xx-large" weight="bold">Neofelis</span>');
+    $title->set_markup('<span size="xx-large" weight="bold">Baycat</span>');
     $title->set_xalign(0);
 
     my $subtitle = Gtk3::Label->new('A friendly way to manage your screens.');
