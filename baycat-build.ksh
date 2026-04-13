@@ -6,7 +6,7 @@ umask 022
 PROGRAM_NAME="baycat-build.ksh"
 APP_SOURCE_NAME="baycat.pl"
 APP_BIN_NAME="baycat"
-PROJECT_NAME="neofelis"
+PROJECT_NAME="baycat"
 SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 SOURCE_FILE="$SCRIPT_DIR/$APP_SOURCE_NAME"
 INSTALL_BIN_DIR="/usr/local/bin"
@@ -112,7 +112,7 @@ write_desktop_entry() {
     cat > "$TMP_DESKTOP" <<DESKTOP
 [Desktop Entry]
 Type=Application
-Name=Neofelis Screen Manager
+Name=Baycat Screen Manager
 Comment=Friendly monitor manager for X11 screens
 Exec=$INSTALL_BIN_FILE
 Icon=video-display
@@ -137,13 +137,13 @@ DESKTOP
 
 finish_message() {
     say ""
-    say "Neofelis is installed."
+    say "Baycat is installed."
     say ""
     say "Run it with:"
     say "  $INSTALL_BIN_FILE"
     say ""
     say "Or launch it from your graphical application menu as:"
-    say "  Neofelis Screen Manager"
+    say "  Baycat Screen Manager"
     say ""
     say "Installed files:"
     say "  Binary : $INSTALL_BIN_FILE"
@@ -152,7 +152,7 @@ finish_message() {
 }
 
 main() {
-    info "Starting Neofelis setup for Artix OpenRC."
+    info "Starting Baycat setup for Artix OpenRC."
     need_command awk
     need_command install
     need_command mkdir
